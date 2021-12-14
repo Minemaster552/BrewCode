@@ -7,6 +7,7 @@
     <script src="blockly_compressed.js"></script>
     <script src="blocks_compressed.js"></script>
     <script src="msg/js/en.js"></script>
+    <script src="brewery_blocks.js"></script>
     <script>
     import Blockly from 'blockly';
     
@@ -18,41 +19,66 @@
     <title>BrewCode</title>
 </head>
 <body>
-    <div id="blocklyDiv" style="height: 480px; width: 600px;"></div>
+    <div id="blocklyDiv" style="height: 360px; width: 640px;"></div>
 </body>
 <script>
     var toolbox = {
   "kind": "flyoutToolbox",
   "contents": [
-    {
-      "kind": "block",
-      "type": "controls_if"
-    },
-    {
-      "kind": "block",
-      "type": "controls_repeat_ext"
-    },
-    {
-      "kind": "block",
-      "type": "logic_compare"
-    },
-    {
-      "kind": "block",
-      "type": "math_number"
-    },
-    {
-      "kind": "block",
-      "type": "math_arithmetic"
-    },
-    {
-      "kind": "block",
-      "type": "text"
-    },
-    {
-      "kind": "block",
-      "type": "text_print"
-    },
+        {
+            "kind": "block",
+            "type": "recipe_block"
+        },        
+        {
+            "kind": "block",
+            "type": "farmfood"
+        },
+        {
+            "kind": "block",
+            "type": "meat"
+        },        
+        {
+            "kind": "block",
+            "type": "fish"
+        },
+        {
+            "kind": "block",
+            "type": "gold"
+        },
+        {
+            "kind": "block",
+            "type": "soup"
+        },
+        {
+            "kind": "block",
+            "type": "miscellaneous"
+        },
+        {
+            "kind": "block",
+            "type": "add"
+        },
+        {
+            "kind": "block",
+            "type": "distill"
+        },
+        {
+            "kind": "block",
+            "type": "alcoholamount"
+        },
+        {
+            "kind": "block",
+            "type": "difficulty"
+        },
+        {
+            "kind": "block",
+            "type": "color"
+        },
   ]
+//  Template Block:
+//   {
+//           "kind": "block",
+//           "type": "controls_if"
+//         },
 }
 var workspace = Blockly.inject('blocklyDiv', {toolbox: toolbox});
 
