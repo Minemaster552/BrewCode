@@ -4,7 +4,13 @@
     <!-- Link And Scripts -->
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/blockly/blockly.min.js"></script>
-    <script></script>
+    <script src="blockly_compressed.js"></script>
+    <script src="blocks_compressed.js"></script>
+    <script src="msg/js/en.js"></script>
+    <script>
+    import Blockly from 'blockly';
+    
+    </script>
     <!-- Meta -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,7 +18,43 @@
     <title>BrewCode</title>
 </head>
 <body>
-    
+    <div id="blocklyDiv" style="height: 480px; width: 600px;"></div>
 </body>
-<script></script>
+<script>
+    var toolbox = {
+  "kind": "flyoutToolbox",
+  "contents": [
+    {
+      "kind": "block",
+      "type": "controls_if"
+    },
+    {
+      "kind": "block",
+      "type": "controls_repeat_ext"
+    },
+    {
+      "kind": "block",
+      "type": "logic_compare"
+    },
+    {
+      "kind": "block",
+      "type": "math_number"
+    },
+    {
+      "kind": "block",
+      "type": "math_arithmetic"
+    },
+    {
+      "kind": "block",
+      "type": "text"
+    },
+    {
+      "kind": "block",
+      "type": "text_print"
+    },
+  ]
+}
+var workspace = Blockly.inject('blocklyDiv', {toolbox: toolbox});
+
+</script>
 </html>
