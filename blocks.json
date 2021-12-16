@@ -1,69 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BrewCode</title>
-
-    <script src="https://unpkg.com/blockly/blockly.min.js"></script>
-    <script src="blocks.js"></script>
-</head>
-<body>
-    <div id="blocklyDiv"></div>
-    <img width="248px" height="89px" src="https://developers.google.com/blockly/images/logos/logo_built_on.png" style="position: fixed; bottom: 0px; right: 0px;">
-</body>
-   <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
-        <block type="recipe">
-          <field name="Name">Brew</field>
-          <field name="Alcohol">0</field>
-          <field name="Difficulty">5</field>
-          <field name="Bad">Bad Brew</field>
-          <field name="Normal">Avarege Brew</field>
-          <field name="Good">Perfect Brew</field>
-          <field name="Potion">#33ffff</field>
-          <field name="Particle">#00cccc</field>
-        </block>
-        <block type="cook">
-          <field name="Time">32</field>
-        </block>
-        <block type="distill">
-          <field name="Runs">3</field>
-          <field name="Time">22</field>
-        </block>
-        <block type="ingredient">
-          <field name="Amount">3</field>
-        </block>
-        <block type="gold">
-          <field name="Ingredient">Enchanted_Golden_Apple</field>
-        </block>
-        <block type="miscellaneous">
-          <field name="Ingredient">Rotten_Flesh</field>
-        </block>
-        <block type="meat">
-          <field name="Ingredient">Cooked_Mutton</field>
-        </block>
-        <block type="herbs">
-          <field name="Ingredient">Oak_Sapling</field>
-        </block>
-        <block type="dusts">
-          <field name="Ingredient">Redstone_Dust</field>
-        </block>
-        <block type="fish">
-          <field name="Ingredient">Cooked_Cod</field>
-        </block>
-        <block type="natural">
-          <field name="Ingredient">Wheat</field>
-        </block>
-        <block type="bowl_food">
-          <field name="Ingredient">Mushroom_Stew</field>
-        </block>
-        <block type="sweets">
-          <field name="Ingredient">Sugar</field>
-        </block>
-  </xml>
-<script>
-Blockly.defineBlocksWithJsonArray([{
+[{
   "type": "recipe",
   "message0": "%1 Alcohol: %2 Difficulty: %3 %4 %5 %6 %7 %8 Brew Color: %9 Particle Color: %10 %11 %12",
   "args0": [
@@ -628,10 +563,4 @@ Blockly.defineBlocksWithJsonArray([{
   "colour": 120,
   "tooltip": "",
   "helpUrl": ""
-}]);
-
-
-
-var workspace = Blockly.inject('blocklyDiv', {toolbox: document.getElementById('toolbox')});
-</script>
-</html>
+}]
