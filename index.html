@@ -10,9 +10,577 @@
     <script src="blocks.js"></script>
 </head>
 <body>
-    <div id="blocklyDiv"></div>
+    <div id="blocklyDiv" style="height: 480px; width: 600px; "></div>
     <img width="248px" height="89px" src="https://developers.google.com/blockly/images/logos/logo_built_on.png" style="position: fixed; bottom: 0px; right: 0px;">
 </body>
+<script>
+    Blockly.defineBlocksWithJsonArray([{
+      "type": "recipe",
+      "message0": "%1 Alcohol: %2 Difficulty: %3 %4 %5 %6 %7 %8 Brew Color: %9 Particle Color: %10 %11 %12",
+      "args0": [
+        {
+          "type": "field_input",
+          "name": "Name",
+          "text": "Brew"
+        },
+        {
+          "type": "field_number",
+          "name": "Alcohol",
+          "value": 0,
+          "min": 0,
+          "max": 100
+        },
+        {
+          "type": "field_number",
+          "name": "Difficulty",
+          "value": 5,
+          "min": 1,
+          "max": 10
+        },
+        {
+          "type": "input_dummy"
+        },
+        {
+          "type": "field_input",
+          "name": "Bad",
+          "text": "Bad Brew"
+        },
+        {
+          "type": "field_input",
+          "name": "Normal",
+          "text": "Avarege Brew"
+        },
+        {
+          "type": "field_input",
+          "name": "Good",
+          "text": "Perfect Brew"
+        },
+        {
+          "type": "input_dummy"
+        },
+        {
+          "type": "field_colour",
+          "name": "Potion",
+          "colour": "#33ffff"
+        },
+        {
+          "type": "field_colour",
+          "name": "Particle",
+          "colour": "#00cccc"
+        },
+        {
+          "type": "input_dummy"
+        },
+        {
+          "type": "input_statement",
+          "name": "Process"
+        }
+      ],
+      "colour": 230,
+      "tooltip": "",
+      "helpUrl": ""
+    },
+    {
+      "type": "cook",
+      "message0": "Cook for %1 minute(s) %2 %3",
+      "args0": [
+        {
+          "type": "field_number",
+          "name": "Time",
+          "value": 32,
+          "min": 1,
+          "max": 60
+        },
+        {
+          "type": "input_dummy"
+        },
+        {
+          "type": "input_statement",
+          "name": "Ingredients"
+        }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 210,
+      "tooltip": "",
+      "helpUrl": ""
+    },
+    {
+      "type": "ingredient",
+      "message0": "Add %1 of %2",
+      "args0": [
+        {
+          "type": "field_number",
+          "name": "Amount",
+          "value": 3,
+          "min": 1,
+          "max": 64
+        },
+        {
+          "type": "input_value",
+          "name": "Ingredient",
+          "check": "Item"
+        }
+      ],
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 160,
+      "tooltip": "",
+      "helpUrl": ""
+    },
+    {
+      "type": "distill",
+      "message0": "Distill %1 for %2 second(s)",
+      "args0": [
+        {
+          "type": "field_number",
+          "name": "Runs",
+          "value": 3,
+          "min": 1
+        },
+        {
+          "type": "field_number",
+          "name": "Time",
+          "value": 22,
+          "min": 1,
+          "max": 3600
+        }
+      ],
+      "previousStatement": null,
+      "colour": 210,
+      "tooltip": "",
+      "helpUrl": ""
+    },
+    {
+      "type": "gold",
+      "message0": "%1",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "Ingredient",
+          "options": [
+            [
+              "Enchanted Golden Apple",
+              "Enchanted_Golden_Apple"
+            ],
+            [
+              "Golden Apple",
+              "Golden_Apple"
+            ],
+            [
+              "Golden Carrot",
+              "Golden_Carrot"
+            ],
+            [
+              "Gold Ingot",
+              "Gold_Ingot"
+            ],
+            [
+              "Gold Nugget",
+              "Gold_Nugget"
+            ],
+            [
+              "Glistering Melon Slice",
+              "Glistering_Melon_Slice"
+            ]
+          ]
+        }
+      ],
+      "output": "Item",
+      "colour": 120,
+      "tooltip": "",
+      "helpUrl": ""
+    },
+    {
+      "type": "meat",
+      "message0": "%1",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "Ingredient",
+          "options": [
+            [
+              "Cooked Mutton",
+              "Cooked_Mutton"
+            ],
+            [
+              "Raw Mutton",
+              "Raw_Mutton"
+            ],
+            [
+              "Cooked Porkchop",
+              "Cooked_Porkchop"
+            ],
+            [
+              "Raw Porkchop",
+              "Raw_Porkchop"
+            ],
+            [
+              "Cooked Beef",
+              "Cooked_Beef"
+            ],
+            [
+              "Raw Beef",
+              "Raw_Beef"
+            ],
+            [
+              "Cooked Chicken",
+              "Cooked_Chicken"
+            ],
+            [
+              "Raw Chicken",
+              "Raw_Chicken"
+            ],
+            [
+              "Cooked Rabbit",
+              "Cooked_Rabbit"
+            ],
+            [
+              "Raw Rabbit",
+              "Raw_Rabbit"
+            ]
+          ]
+        }
+      ],
+      "output": "Item",
+      "colour": 120,
+      "tooltip": "",
+      "helpUrl": ""
+    },
+    {
+      "type": "natural",
+      "message0": "%1",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "Ingredient",
+          "options": [
+            [
+              "Wheat",
+              "Wheat"
+            ],
+            [
+              "Carrot",
+              "Carrot"
+            ],
+            [
+              "Potato",
+              "Potato"
+            ],
+            [
+              "Baked Potato",
+              "Baked_Potato"
+            ],
+            [
+              "Milk",
+              "Milk_Bucket"
+            ],
+            [
+              "Egg",
+              "Egg"
+            ],
+            [
+              "Pumpkin",
+              "Pumpkin"
+            ],
+            [
+              "Melon Slice",
+              "Melon_Slice"
+            ],
+            [
+              "Brown Mushroom",
+              "Brown_Mushroom"
+            ],
+            [
+              "Red Mushroom",
+              "Red_Mushroom"
+            ]
+          ]
+        }
+      ],
+      "output": "Item",
+      "colour": 120,
+      "tooltip": "",
+      "helpUrl": ""
+    },
+    {
+      "type": "bowl_food",
+      "message0": "%1",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "Ingredient",
+          "options": [
+            [
+              "Mushroom Stew",
+              "Mushroom_Stew"
+            ],
+            [
+              "Rabbit Stew",
+              "Rabbit_Stew"
+            ],
+            [
+              "Suspicious Stew",
+              "Suspicious_Stew"
+            ],
+            [
+              "Beetroot Soup",
+              "Beetroot Soup"
+            ]
+          ]
+        }
+      ],
+      "output": "Item",
+      "colour": 120,
+      "tooltip": "",
+      "helpUrl": ""
+    },
+    {
+      "type": "sweets",
+      "message0": "%1",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "Ingredient",
+          "options": [
+            [
+              "Sugar",
+              "Sugar"
+            ],
+            [
+              "Sweet Berries",
+              "Sweet_Berries"
+            ],
+            [
+              "Glow Berries",
+              "Glow_Berries"
+            ],
+            [
+              "Cocoa Beans",
+              "Cocoa_Beans"
+            ],
+            [
+              "Honey Block",
+              "Honey_Block"
+            ],
+            [
+              "Honey Bottle",
+              "Honey_bottle"
+            ],
+            [
+              "Honeycomb",
+              "Honeycomb"
+            ],
+            [
+              "Cookie",
+              "Cookie"
+            ],
+            [
+              "Cake",
+              "Cake"
+            ],
+            [
+              "Pumpkin Pie",
+              "Pumpkin_Pie"
+            ]
+          ]
+        }
+      ],
+      "output": "Item",
+      "colour": 120,
+      "tooltip": "",
+      "helpUrl": ""
+    },
+    {
+      "type": "fish",
+      "message0": "%1",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "Ingredient",
+          "options": [
+            [
+              "Cooked Cod",
+              "Cooked_Cod"
+            ],
+            [
+              "Raw Cod",
+              "Raw_Cod"
+            ],
+            [
+              "Cooked Salmon",
+              "Cooked_Salmon"
+            ],
+            [
+              "Raw Salmon",
+              "Raw_Salmon"
+            ],
+            [
+              "Exotic Fish",
+              "Exotic_Fish"
+            ],
+            [
+              "Pufferfish",
+              "Pufferfish"
+            ]
+          ]
+        }
+      ],
+      "output": "Item",
+      "colour": 120,
+      "tooltip": "",
+      "helpUrl": ""
+    },
+    {
+      "type": "herbs",
+      "message0": "%1",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "Ingredient",
+          "options": [
+            [
+              "Oak Sapling",
+              "Oak_Sapling"
+            ],
+            [
+              "Birch Sapling",
+              "Birch_Sapling"
+            ],
+            [
+              "Dark Oak Sapling",
+              "Dark_Oak_Sapling"
+            ],
+            [
+              "Spruce Sapling",
+              "Spruce_Sapling"
+            ],
+            [
+              "AcaciaSapling",
+              "Acacia_Sapling"
+            ],
+            [
+              "Jungle Sapling",
+              "Jungle_Sapling"
+            ],
+            [
+              "Wheat Seeds",
+              "Wheat_Seeds"
+            ],
+            [
+              "Beetroot Seeds",
+              "Beetroot_Seeds"
+            ],
+            [
+              "Melon Seeds",
+              "Melon_Seeds"
+            ],
+            [
+              "Pumpkin Seeds",
+              "Pumpkin_Seeds"
+            ]
+          ]
+        }
+      ],
+      "output": "Item",
+      "colour": 120,
+      "tooltip": "",
+      "helpUrl": ""
+    },
+    {
+      "type": "dusts",
+      "message0": "%1",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "Ingredient",
+          "options": [
+            [
+              "Redstone Dust",
+              "Redstone_Dust"
+            ],
+            [
+              "Gunpowder",
+              "Gunpowder"
+            ],
+            [
+              "Glowstone Dust",
+              "Glowstone_Dust"
+            ],
+            [
+              "Bone Meal",
+              "Bone_Meal"
+            ]
+          ]
+        }
+      ],
+      "output": "Item",
+      "colour": 120,
+      "tooltip": "",
+      "helpUrl": ""
+    },
+    {
+      "type": "miscellaneous",
+      "message0": "%1",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "Ingredient",
+          "options": [
+            [
+              "Rotten Flesh",
+              "Rotten_Flesh"
+            ],
+            [
+              "Spider Eye",
+              "Spider_Eye"
+            ],
+            [
+              "Chorus Fruit",
+              "Chorus_Fruit"
+            ],
+            [
+              "Poisonous Potato",
+              "Poisonous_Potato"
+            ],
+            [
+              "Nether Wart",
+              "Nether_Wart"
+            ],
+            [
+              "Blaze Powder",
+              "Blaze_Powder"
+            ],
+            [
+              "Blaze Rod",
+              "Blaze_Rod"
+            ],
+            [
+              "Magma Cream",
+              "Magma_Cream"
+            ],
+            [
+              "Crying Obsidian",
+              "Crying_Obsidian"
+            ],
+            [
+              "Ender Pearl",
+              "Ender_Pearl"
+            ],
+            [
+              "Ender Eye",
+              "Ender_Eye"
+            ]
+          ]
+        }
+      ],
+      "output": "Item",
+      "colour": 120,
+      "tooltip": "",
+      "helpUrl": ""
+    }]);
+    </script>
    <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
         <block type="recipe">
           <field name="Name">Brew</field>
@@ -62,575 +630,8 @@
           <field name="Ingredient">Sugar</field>
         </block>
   </xml>
+
 <script>
-Blockly.defineBlocksWithJsonArray([{
-  "type": "recipe",
-  "message0": "%1 Alcohol: %2 Difficulty: %3 %4 %5 %6 %7 %8 Brew Color: %9 Particle Color: %10 %11 %12",
-  "args0": [
-    {
-      "type": "field_input",
-      "name": "Name",
-      "text": "Brew"
-    },
-    {
-      "type": "field_number",
-      "name": "Alcohol",
-      "value": 0,
-      "min": 0,
-      "max": 100
-    },
-    {
-      "type": "field_number",
-      "name": "Difficulty",
-      "value": 5,
-      "min": 1,
-      "max": 10
-    },
-    {
-      "type": "input_dummy"
-    },
-    {
-      "type": "field_input",
-      "name": "Bad",
-      "text": "Bad Brew"
-    },
-    {
-      "type": "field_input",
-      "name": "Normal",
-      "text": "Avarege Brew"
-    },
-    {
-      "type": "field_input",
-      "name": "Good",
-      "text": "Perfect Brew"
-    },
-    {
-      "type": "input_dummy"
-    },
-    {
-      "type": "field_colour",
-      "name": "Potion",
-      "colour": "#33ffff"
-    },
-    {
-      "type": "field_colour",
-      "name": "Particle",
-      "colour": "#00cccc"
-    },
-    {
-      "type": "input_dummy"
-    },
-    {
-      "type": "input_statement",
-      "name": "Process"
-    }
-  ],
-  "colour": 230,
-  "tooltip": "",
-  "helpUrl": ""
-},
-{
-  "type": "cook",
-  "message0": "Cook for %1 minute(s) %2 %3",
-  "args0": [
-    {
-      "type": "field_number",
-      "name": "Time",
-      "value": 32,
-      "min": 1,
-      "max": 60
-    },
-    {
-      "type": "input_dummy"
-    },
-    {
-      "type": "input_statement",
-      "name": "Ingredients"
-    }
-  ],
-  "previousStatement": null,
-  "nextStatement": null,
-  "colour": 210,
-  "tooltip": "",
-  "helpUrl": ""
-},
-{
-  "type": "ingredient",
-  "message0": "Add %1 of %2",
-  "args0": [
-    {
-      "type": "field_number",
-      "name": "Amount",
-      "value": 3,
-      "min": 1,
-      "max": 64
-    },
-    {
-      "type": "input_value",
-      "name": "Ingredient",
-      "check": "Item"
-    }
-  ],
-  "inputsInline": true,
-  "previousStatement": null,
-  "nextStatement": null,
-  "colour": 160,
-  "tooltip": "",
-  "helpUrl": ""
-},
-{
-  "type": "distill",
-  "message0": "Distill %1 for %2 second(s)",
-  "args0": [
-    {
-      "type": "field_number",
-      "name": "Runs",
-      "value": 3,
-      "min": 1
-    },
-    {
-      "type": "field_number",
-      "name": "Time",
-      "value": 22,
-      "min": 1,
-      "max": 3600
-    }
-  ],
-  "previousStatement": null,
-  "colour": 210,
-  "tooltip": "",
-  "helpUrl": ""
-},
-{
-  "type": "gold",
-  "message0": "%1",
-  "args0": [
-    {
-      "type": "field_dropdown",
-      "name": "Ingredient",
-      "options": [
-        [
-          "Enchanted Golden Apple",
-          "Enchanted_Golden_Apple"
-        ],
-        [
-          "Golden Apple",
-          "Golden_Apple"
-        ],
-        [
-          "Golden Carrot",
-          "Golden_Carrot"
-        ],
-        [
-          "Gold Ingot",
-          "Gold_Ingot"
-        ],
-        [
-          "Gold Nugget",
-          "Gold_Nugget"
-        ],
-        [
-          "Glistering Melon Slice",
-          "Glistering_Melon_Slice"
-        ]
-      ]
-    }
-  ],
-  "output": "Item",
-  "colour": 120,
-  "tooltip": "",
-  "helpUrl": ""
-},
-{
-  "type": "meat",
-  "message0": "%1",
-  "args0": [
-    {
-      "type": "field_dropdown",
-      "name": "Ingredient",
-      "options": [
-        [
-          "Cooked Mutton",
-          "Cooked_Mutton"
-        ],
-        [
-          "Raw Mutton",
-          "Raw_Mutton"
-        ],
-        [
-          "Cooked Porkchop",
-          "Cooked_Porkchop"
-        ],
-        [
-          "Raw Porkchop",
-          "Raw_Porkchop"
-        ],
-        [
-          "Cooked Beef",
-          "Cooked_Beef"
-        ],
-        [
-          "Raw Beef",
-          "Raw_Beef"
-        ],
-        [
-          "Cooked Chicken",
-          "Cooked_Chicken"
-        ],
-        [
-          "Raw Chicken",
-          "Raw_Chicken"
-        ],
-        [
-          "Cooked Rabbit",
-          "Cooked_Rabbit"
-        ],
-        [
-          "Raw Rabbit",
-          "Raw_Rabbit"
-        ]
-      ]
-    }
-  ],
-  "output": "Item",
-  "colour": 120,
-  "tooltip": "",
-  "helpUrl": ""
-},
-{
-  "type": "natural",
-  "message0": "%1",
-  "args0": [
-    {
-      "type": "field_dropdown",
-      "name": "Ingredient",
-      "options": [
-        [
-          "Wheat",
-          "Wheat"
-        ],
-        [
-          "Carrot",
-          "Carrot"
-        ],
-        [
-          "Potato",
-          "Potato"
-        ],
-        [
-          "Baked Potato",
-          "Baked_Potato"
-        ],
-        [
-          "Milk",
-          "Milk_Bucket"
-        ],
-        [
-          "Egg",
-          "Egg"
-        ],
-        [
-          "Pumpkin",
-          "Pumpkin"
-        ],
-        [
-          "Melon Slice",
-          "Melon_Slice"
-        ],
-        [
-          "Brown Mushroom",
-          "Brown_Mushroom"
-        ],
-        [
-          "Red Mushroom",
-          "Red_Mushroom"
-        ]
-      ]
-    }
-  ],
-  "output": "Item",
-  "colour": 120,
-  "tooltip": "",
-  "helpUrl": ""
-},
-{
-  "type": "bowl_food",
-  "message0": "%1",
-  "args0": [
-    {
-      "type": "field_dropdown",
-      "name": "Ingredient",
-      "options": [
-        [
-          "Mushroom Stew",
-          "Mushroom_Stew"
-        ],
-        [
-          "Rabbit Stew",
-          "Rabbit_Stew"
-        ],
-        [
-          "Suspicious Stew",
-          "Suspicious_Stew"
-        ],
-        [
-          "Beetroot Soup",
-          "Beetroot Soup"
-        ]
-      ]
-    }
-  ],
-  "output": "Item",
-  "colour": 120,
-  "tooltip": "",
-  "helpUrl": ""
-},
-{
-  "type": "sweets",
-  "message0": "%1",
-  "args0": [
-    {
-      "type": "field_dropdown",
-      "name": "Ingredient",
-      "options": [
-        [
-          "Sugar",
-          "Sugar"
-        ],
-        [
-          "Sweet Berries",
-          "Sweet_Berries"
-        ],
-        [
-          "Glow Berries",
-          "Glow_Berries"
-        ],
-        [
-          "Cocoa Beans",
-          "Cocoa_Beans"
-        ],
-        [
-          "Honey Block",
-          "Honey_Block"
-        ],
-        [
-          "Honey Bottle",
-          "Honey_bottle"
-        ],
-        [
-          "Honeycomb",
-          "Honeycomb"
-        ],
-        [
-          "Cookie",
-          "Cookie"
-        ],
-        [
-          "Cake",
-          "Cake"
-        ],
-        [
-          "Pumpkin Pie",
-          "Pumpkin_Pie"
-        ]
-      ]
-    }
-  ],
-  "output": "Item",
-  "colour": 120,
-  "tooltip": "",
-  "helpUrl": ""
-},
-{
-  "type": "fish",
-  "message0": "%1",
-  "args0": [
-    {
-      "type": "field_dropdown",
-      "name": "Ingredient",
-      "options": [
-        [
-          "Cooked Cod",
-          "Cooked_Cod"
-        ],
-        [
-          "Raw Cod",
-          "Raw_Cod"
-        ],
-        [
-          "Cooked Salmon",
-          "Cooked_Salmon"
-        ],
-        [
-          "Raw Salmon",
-          "Raw_Salmon"
-        ],
-        [
-          "Exotic Fish",
-          "Exotic_Fish"
-        ],
-        [
-          "Pufferfish",
-          "Pufferfish"
-        ]
-      ]
-    }
-  ],
-  "output": "Item",
-  "colour": 120,
-  "tooltip": "",
-  "helpUrl": ""
-},
-{
-  "type": "herbs",
-  "message0": "%1",
-  "args0": [
-    {
-      "type": "field_dropdown",
-      "name": "Ingredient",
-      "options": [
-        [
-          "Oak Sapling",
-          "Oak_Sapling"
-        ],
-        [
-          "Birch Sapling",
-          "Birch_Sapling"
-        ],
-        [
-          "Dark Oak Sapling",
-          "Dark_Oak_Sapling"
-        ],
-        [
-          "Spruce Sapling",
-          "Spruce_Sapling"
-        ],
-        [
-          "AcaciaSapling",
-          "Acacia_Sapling"
-        ],
-        [
-          "Jungle Sapling",
-          "Jungle_Sapling"
-        ],
-        [
-          "Wheat Seeds",
-          "Wheat_Seeds"
-        ],
-        [
-          "Beetroot Seeds",
-          "Beetroot_Seeds"
-        ],
-        [
-          "Melon Seeds",
-          "Melon_Seeds"
-        ],
-        [
-          "Pumpkin Seeds",
-          "Pumpkin_Seeds"
-        ]
-      ]
-    }
-  ],
-  "output": "Item",
-  "colour": 120,
-  "tooltip": "",
-  "helpUrl": ""
-},
-{
-  "type": "dusts",
-  "message0": "%1",
-  "args0": [
-    {
-      "type": "field_dropdown",
-      "name": "Ingredient",
-      "options": [
-        [
-          "Redstone Dust",
-          "Redstone_Dust"
-        ],
-        [
-          "Gunpowder",
-          "Gunpowder"
-        ],
-        [
-          "Glowstone Dust",
-          "Glowstone_Dust"
-        ],
-        [
-          "Bone Meal",
-          "Bone_Meal"
-        ]
-      ]
-    }
-  ],
-  "output": "Item",
-  "colour": 120,
-  "tooltip": "",
-  "helpUrl": ""
-},
-{
-  "type": "miscellaneous",
-  "message0": "%1",
-  "args0": [
-    {
-      "type": "field_dropdown",
-      "name": "Ingredient",
-      "options": [
-        [
-          "Rotten Flesh",
-          "Rotten_Flesh"
-        ],
-        [
-          "Spider Eye",
-          "Spider_Eye"
-        ],
-        [
-          "Chorus Fruit",
-          "Chorus_Fruit"
-        ],
-        [
-          "Poisonous Potato",
-          "Poisonous_Potato"
-        ],
-        [
-          "Nether Wart",
-          "Nether_Wart"
-        ],
-        [
-          "Blaze Powder",
-          "Blaze_Powder"
-        ],
-        [
-          "Blaze Rod",
-          "Blaze_Rod"
-        ],
-        [
-          "Magma Cream",
-          "Magma_Cream"
-        ],
-        [
-          "Crying Obsidian",
-          "Crying_Obsidian"
-        ],
-        [
-          "Ender Pearl",
-          "Ender_Pearl"
-        ],
-        [
-          "Ender Eye",
-          "Ender_Eye"
-        ]
-      ]
-    }
-  ],
-  "output": "Item",
-  "colour": 120,
-  "tooltip": "",
-  "helpUrl": ""
-}]);
-
-
 
 var workspace = Blockly.inject('blocklyDiv', {toolbox: document.getElementById('toolbox')});
 </script>
