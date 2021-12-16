@@ -1,86 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Link And Scripts -->
-    <link rel="stylesheet" href="style.css">
-    <script src="https://unpkg.com/blockly/blockly.min.js"></script>
-    <script src="blockly_compressed.js"></script>
-    <script src="blocks_compressed.js"></script>
-    <script src="msg/js/en.js"></script>
-    <script src="brewery_blocks.js"></script>
-    <script>
-    import Blockly from 'blockly';
-    
-    </script>
-    <!-- Meta -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BrewCode</title>
 </head>
 <body>
-    <div id="blocklyDiv" style="height: 360px; width: 640px;"></div>
+    <div id="blocklyDiv"></div>
+    <img src="https://developers.google.com/blockly/images/logos/logo_built_on.png" style="position: fixed; bottom: 0px; right: 0px;">
 </body>
-<script>
-    var toolbox = {
-  "kind": "flyoutToolbox",
-  "contents": [
-        {
-            "kind": "block",
-            "type": "recipe_block"
-        },        
-        {
-            "kind": "block",
-            "type": "farmfood"
-        },
-        {
-            "kind": "block",
-            "type": "meat"
-        },        
-        {
-            "kind": "block",
-            "type": "fish"
-        },
-        {
-            "kind": "block",
-            "type": "gold"
-        },
-        {
-            "kind": "block",
-            "type": "soup"
-        },
-        {
-            "kind": "block",
-            "type": "miscellaneous"
-        },
-        {
-            "kind": "block",
-            "type": "add"
-        },
-        {
-            "kind": "block",
-            "type": "distill"
-        },
-        {
-            "kind": "block",
-            "type": "alcoholamount"
-        },
-        {
-            "kind": "block",
-            "type": "difficulty"
-        },
-        {
-            "kind": "block",
-            "type": "color"
-        },
-  ]
-//  Template Block:
-//   {
-//           "kind": "block",
-//           "type": "controls_if"
-//         },
-}
-var workspace = Blockly.inject('blocklyDiv', {toolbox: toolbox});
-
-</script>
 </html>
