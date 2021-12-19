@@ -9,7 +9,7 @@ Blockly.JavaScript['recipe'] = function(block) {
   var colour_particle = block.getFieldValue('Particle');
   var statements_process = Blockly.JavaScript.statementToCode(block, 'Process');
   // TODO: Assemble JavaScript into code variable.
-  var code = '...;\n';
+  var code = `${1 + 1}\n`;
   return code;
 };
 
