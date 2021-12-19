@@ -1,5 +1,6 @@
 Blockly.JavaScript['recipe'] = function(block) {
-  var text_name = block.getFieldValue('Name');
+  var brew_name = block.getFieldValue('Name');
+  var brew_id = brew_name.toLowerCase()
   var number_alcohol = block.getFieldValue('Alcohol');
   var number_difficulty = block.getFieldValue('Difficulty');
   var text_bad = block.getFieldValue('Bad');
@@ -9,7 +10,12 @@ Blockly.JavaScript['recipe'] = function(block) {
   var colour_particle = block.getFieldValue('Particle');
   var statements_process = Blockly.JavaScript.statementToCode(block, 'Process');
   // TODO: Assemble JavaScript into code variable.
-  var code = `${1 + 1}\n`;
+  var code = `${brew_id}:
+  name: ${text_bad}/${text_normal}/${text_good}
+  ingredients:
+  ${statements_process}
+  difficulty: ${number_difficulty}
+  alcohol: ${number_alcohol}`;
   return code;
 };
 
@@ -17,7 +23,8 @@ Blockly.JavaScript['cook'] = function(block) {
   var number_time = block.getFieldValue('Time');
   var statements_ingredients = Blockly.JavaScript.statementToCode(block, 'Ingredients');
   // TODO: Assemble JavaScript into code variable.
-  var code = '...;\n';
+  var code = `${statements_ingredients}
+  cookingtime: ${number_time}`;
   return code;
 };
 
