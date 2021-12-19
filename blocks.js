@@ -32,7 +32,7 @@ Blockly.JavaScript['ingredient'] = function(block) {
   var number_amount = block.getFieldValue('Amount');
   var value_ingredient = Blockly.JavaScript.valueToCode(block, 'Ingredient', Blockly.JavaScript.ORDER_ATOMIC);
   // TODO: Assemble JavaScript into code variable.
-  if (number_amount == 0) {
+  if (number_amount == 1) {
   var code = ` - ${value_ingredient}`;
 } else {
   var code = ` - ${value_ingredient}/${number_amount}`
