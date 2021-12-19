@@ -7,13 +7,13 @@ Blockly.JavaScript['recipe'] = function(block) {
   var text_normal = block.getFieldValue('Normal');
   var text_good = block.getFieldValue('Good');
   var colour_potion = block.getFieldValue('Potion');
-  var colour_particle = block.getFieldValue('Particle');
   var statements_process = Blockly.JavaScript.statementToCode(block, 'Process');
   // TODO: Assemble JavaScript into code variable.
   var code = `${brew_id}:
   name: ${text_bad}/${text_normal}/${text_good}
   ingredients:
   ${statements_process}
+  color: ${colour_potion}
   difficulty: ${number_difficulty}
   alcohol: ${number_alcohol}`;
   return code;
