@@ -44,7 +44,8 @@ Blockly.JavaScript['distill'] = function(block) {
   var number_runs = block.getFieldValue('Runs');
   var number_time = block.getFieldValue('Time');
   // TODO: Assemble JavaScript into code variable.
-  var code = '...;\n';
+  var code = `distillruns:${number_runs}
+  distilltime:${number_time}`;
   return code;
 };
 
