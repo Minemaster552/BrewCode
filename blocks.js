@@ -47,7 +47,7 @@ Blockly.JavaScript['distill'] = function(block) {
 Blockly.JavaScript['gold'] = function(block) {
   var dropdown_ingredient = block.getFieldValue('Ingredient');
   // TODO: Assemble JavaScript into code variable.
-  var code = '...';
+  var code = `${dropdown_ingredient}`;
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
@@ -55,7 +55,7 @@ Blockly.JavaScript['gold'] = function(block) {
 Blockly.JavaScript['meat'] = function(block) {
   var dropdown_ingredient = block.getFieldValue('Ingredient');
   // TODO: Assemble JavaScript into code variable.
-  var code = '...';
+  var code = `${dropdown_ingredient}`;
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
@@ -63,7 +63,7 @@ Blockly.JavaScript['meat'] = function(block) {
 Blockly.JavaScript['natural'] = function(block) {
   var dropdown_ingredient = block.getFieldValue('Ingredient');
   // TODO: Assemble JavaScript into code variable.
-  var code = '...';
+  var code = `${dropdown_ingredient}`;
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
@@ -71,7 +71,7 @@ Blockly.JavaScript['natural'] = function(block) {
 Blockly.JavaScript['bowl_food'] = function(block) {
   var dropdown_ingredient = block.getFieldValue('Ingredient');
   // TODO: Assemble JavaScript into code variable.
-  var code = '...';
+  var code = `${dropdown_ingredient}`;
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
@@ -79,7 +79,7 @@ Blockly.JavaScript['bowl_food'] = function(block) {
 Blockly.JavaScript['sweets'] = function(block) {
   var dropdown_ingredient = block.getFieldValue('Ingredient');
   // TODO: Assemble JavaScript into code variable.
-  var code = '...';
+  var code = `${dropdown_ingredient}`;
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
@@ -87,7 +87,7 @@ Blockly.JavaScript['sweets'] = function(block) {
 Blockly.JavaScript['fish'] = function(block) {
   var dropdown_ingredient = block.getFieldValue('Ingredient');
   // TODO: Assemble JavaScript into code variable.
-  var code = '...';
+  var code = `${dropdown_ingredient}`;
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
@@ -95,7 +95,7 @@ Blockly.JavaScript['fish'] = function(block) {
 Blockly.JavaScript['herbs'] = function(block) {
   var dropdown_ingredient = block.getFieldValue('Ingredient');
   // TODO: Assemble JavaScript into code variable.
-  var code = '...';
+  var code = `${dropdown_ingredient}`;
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
@@ -103,7 +103,7 @@ Blockly.JavaScript['herbs'] = function(block) {
 Blockly.JavaScript['dusts'] = function(block) {
   var dropdown_ingredient = block.getFieldValue('Ingredient');
   // TODO: Assemble JavaScript into code variable.
-  var code = '...';
+  var code = `${dropdown_ingredient}`;
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
@@ -111,7 +111,7 @@ Blockly.JavaScript['dusts'] = function(block) {
 Blockly.JavaScript['miscellaneous'] = function(block) {
   var dropdown_ingredient = block.getFieldValue('Ingredient');
   // TODO: Assemble JavaScript into code variable.
-  var code = '...';
+  var code = `${dropdown_ingredient}`;
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
