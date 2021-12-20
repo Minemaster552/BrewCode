@@ -640,7 +640,8 @@
 var workspace = Blockly.inject('blocklyDiv', {toolbox: document.getElementById('toolbox')});
 
 function myUpdateFunction(event) {
-  var code = Blockly.JavaScript.workspaceToCode(workspace);
+  var old_code = Blockly.JavaScript.workspaceToCode(workspace);
+  var code = string.replace('('|')', '');
   document.getElementById('textarea').value = code;
 }
 workspace.addChangeListener(myUpdateFunction);
